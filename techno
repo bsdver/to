@@ -9,12 +9,14 @@ echo '### backup for proton packages'
 echo 'bp - create .i386-wine-pkg.tar.xz'
 echo 'bs - create .steam.tar.xz'
 echo 'bu - create .archive.tar.xz (universal)'
+echo '### linux libs for portwine or ubuntu service'
+echo 'la - mkdir /usr/lib/x86_64-linux-gnu/ and download libs'
+echo 'le - extract and move libs'
 echo '### portwine'
 echo 'pd - delete old installation of portwine'
 echo 'pe - extra needed for installation'
 echo 'pi - installation of portwine'
 echo 'ps - start portwine'
-echo 'pu - mkdir /usr/lib/x86_64-linux-gnu/ and download libs'
 echo 'pz - unzip and mv ubuntu libs'
 echo '### service ubuntu compat'
 echo 'sus - install service ubuntu with brave-browser'
@@ -37,6 +39,16 @@ echo -n 'Choose your number: '
   export XZ_OPT=-9 
   tar cvJf .archive.tar.xz .archive
   ;;
+  la)
+   sudo mkdir /usr/lib/x86_64-linux-gnu/
+   lxterminal --geometry=40x4 -e 'chrome https://drive.google.com/file/d/1zq4wvy7Cu9h4tzPzXHrmulhQlpcPzjBz/view?usp=sharing' &
+  ;;  
+  le)
+   cd Downloads
+   unzip x86_64-linux-gnu
+   sudo mv /usr/lib/x86_64-linux-gnu/* /usr/lib/lib/x86_64-linux-gnu/
+   cd ..
+  ;; 
   pd)
    rm -rf PortProton-95
    rm -rf .PortProton-95
@@ -55,16 +67,6 @@ echo -n 'Choose your number: '
   ;;
   ps)
    lxterminal --geometry=80x20 -e 'PortWINE/PortProton/data/scripts/start.sh %F ; /usr/local/bin/bash' & 
-  ;; 
-  pu)
-   sudo mkdir /usr/lib/x86_64-linux-gnu/
-   lxterminal --geometry=40x4 -e 'chrome https://drive.google.com/file/d/1zq4wvy7Cu9h4tzPzXHrmulhQlpcPzjBz/view?usp=sharing' &
-  ;;  
-  pz)
-   cd Downloads
-   unzip x86_64-linux-gnu
-   sudo mv /usr/lib/x86_64-linux-gnu/* /usr/lib/lib/x86_64-linux-gnu/
-   cd ..
   ;; 
   sus)
    # depences  
