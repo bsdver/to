@@ -11,6 +11,7 @@ echo 'bs - create .steam.tar.xz'
 echo 'bu - create .archive.tar.xz (universal)'
 echo '### portwine'
 echo 'pd - delete old installation of portwine'
+echo 'pe - extra needed for installation'
 echo 'pi - installation of portwine'
 echo 'ps - start portwine'
 echo 'pu - mkdir /usr/lib/x86_64-linux-gnu/ and download libs'
@@ -39,6 +40,15 @@ echo -n 'Choose your number: '
   pd)
    rm -rf PortProton-95
    rm -rf .PortProton-95
+  ;; 
+  pe)
+   fetch https://github.com/bsdver/to/archive/refs/heads/main.zip
+   unzip main.zip
+   cp sha256sum /usr/local/bin/sha256sum
+   sudo chmod +x /usr/local/bin/sha256sum
+   sudo ln -s /usr/local/bin/bash /bin/bash
+   rm -rf to-main
+   rm main.zip
   ;; 
   pi)
    lxterminal --geometry=80x20 -e 'wget -c -T 5 https://portwine-linux.ru/ftp/portwine/PortProton-95 && sh "./PortProton-95" &' 
