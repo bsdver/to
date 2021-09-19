@@ -55,7 +55,7 @@ echo -n 'Choose your number: '
   pe)
    fetch https://github.com/bsdver/to/archive/refs/heads/main.zip
    unzip main.zip
-   cp sha256sum /usr/local/bin/sha256sum
+   sudo cp sha256sum /usr/local/bin/sha256sum
    sudo chmod +x /usr/local/bin/sha256sum
    sudo ln -s /usr/local/bin/bash /bin/bash
    rm -rf to-main
