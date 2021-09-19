@@ -7,17 +7,16 @@ clear
 
 echo '### backup for proton packages'
 echo 'bp - create .i386-wine-pkg.tar.xz'
-echo '### create universal backup'
-echo 'cub - create archive.tar.xz from archive folder'
+echo 'bs - create .steam.tar.xz'
+echo 'bu - create .archive.tar.xz (universal)'
 echo '### portwine'
-echo 'pp - prepare for portwine'
+echo 'pd - delete old installation of portwine'
 echo 'pi - installation of portwine'
 echo 'pr - remove all files of portwine'
 echo 'ps - start portwine'
-echo 'prl - remove libs_v17.tar.xz'
-echo 'prd - mkdir /usr/lib/x86_64-linux-gnu/ and download libs'
+echo 'pz - mkdir /usr/lib/x86_64-linux-gnu/ and download libs'
 echo '### service ubuntu compat'
-echo 'sus - install service with brave-browser'
+echo 'sus - install service ubuntu with brave-browser'
 echo '### system commands'
 echo 'upd - close techno'
 echo 'exit - close techno'
@@ -29,28 +28,25 @@ echo -n 'Choose your number: '
   export XZ_OPT=-9 
   tar cvJf .i386-wine-pkg.tar.xz .i386-wine-pkg
   ;;
-  cub)
+  bs)
   export XZ_OPT=-9 
-  tar cvJf archive.tar.xz archive
+  tar cvJf .steam.tar.xz .steam
   ;;
-  pp)
-   echo 'nothing'
-   sleep 4
+  bu)
+  export XZ_OPT=-9 
+  tar cvJf .archive.tar.xz .archive
   ;;
-  pi)
-   lxterminal --geometry=80x20 -e 'wget -c -T 5 https://portwine-linux.ru/ftp/portwine/PortProton-95 && sh "./PortProton-95" &' 
-  ;;
-  pr)
+  pd)
    rm -rf PortProton-95
    rm -rf .PortProton-95
   ;; 
+  pi)
+   lxterminal --geometry=80x20 -e 'wget -c -T 5 https://portwine-linux.ru/ftp/portwine/PortProton-95 && sh "./PortProton-95" &' 
+  ;;
   ps)
    lxterminal --geometry=80x20 -e 'PortWINE/PortProton/data/scripts/start.sh %F ; /usr/local/bin/bash' & 
   ;; 
-  prl)
-   rm Downloads/libs_v17.tar.xz
-  ;;
-  prd)
+  pz)
    sudo mkdir /usr/lib/x86_64-linux-gnu/
    lxterminal --geometry=40x4 -e 'chrome https://drive.google.com/file/d/1zq4wvy7Cu9h4tzPzXHrmulhQlpcPzjBz/view?usp=sharing' &
   ;;  
@@ -98,7 +94,7 @@ echo -n 'Choose your number: '
   ;;
   upd)
    ### update techno
-   fetch https://github.com/bsdver/so/archive/refs/heads/main.zip
+   fetch https://github.com/bsdver/to/archive/refs/heads/main.zip
    unzip main.zip
    mv so-main/techno .techno
    sudo chmod +x .techno
