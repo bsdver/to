@@ -45,7 +45,7 @@ echo -n 'Choose your number: '
   le)
    cd Downloads
    unzip x86_64-linux-gnu.zip
-   sudo mv /usr/lib/x86_64-linux-gnu/* /usr/lib/lib/x86_64-linux-gnu/
+   sudo mv x86_64-linux-gnu/* /usr/lib/lib/x86_64-linux-gnu/
    cd ..
   ;; 
   pd)
