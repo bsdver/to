@@ -27,14 +27,17 @@ echo -n 'Choose your number: '
  read ans
  case "$ans" in
   bp)
+  cd /home/admin
   export XZ_OPT=-9 
   tar cvJf .i386-wine-pkg.tar.xz .i386-wine-pkg
   ;;
   bs)
+  cd /home/admin
   export XZ_OPT=-9 
   tar cvJf .steam.tar.xz .steam
   ;;
   bu)
+  cd /home/admin
   export XZ_OPT=-9 
   tar cvJf .archive.tar.xz .archive
   ;;
@@ -43,12 +46,13 @@ echo -n 'Choose your number: '
    lxterminal --geometry=40x4 -e 'chrome https://drive.google.com/file/d/1zq4wvy7Cu9h4tzPzXHrmulhQlpcPzjBz/view?usp=sharing' &
   ;;  
   le)
-   cd Downloads
+   cd cd /home/admin/Downloads
    unzip x86_64-linux-gnu.zip
    sudo mv x86_64-linux-gnu/* /usr/lib/x86_64-linux-gnu/
    cd ..
   ;; 
   pd)
+   cd /home/admin
    rm -rf PortProton-95
    rm -rf .PortProton-95
   ;; 
